@@ -126,10 +126,18 @@ class _HomepageState extends State<Homepage> {
                           child: Container(
                             color: Colors.transparent  ,
                             child: TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  scanUrl(searchController.text);
-                                });
+                              onPressed: () async {
+                                await scanUrl(searchController.text);
+                                if (code == 404)
+                                  {
+                                    setState(() {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => NoResult()));
+                                    });
+                                  }
+                                else
+                                  {
+                                    //">>>>>>>>>>>>>> NEW PAGE FOR RESULT <<<<<<<<<<<<<<<<<"
+                                  }
                               },
                               child: Text(
                                 'Search',
