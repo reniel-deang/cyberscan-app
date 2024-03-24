@@ -28,6 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  url_launcher:
+  text_link: ^1.0.0
   flutter:
     sdk: flutter
   http: ^1.1.0
