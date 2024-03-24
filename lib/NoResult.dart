@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:virus_total_api/main.dart';
+import 'main.dart';
 import 'config/connect-api.dart';
 
 class NoResult extends StatefulWidget {
@@ -17,11 +19,11 @@ class _NoResultState extends State<NoResult> {
         toolbarHeight: 80,
         backgroundColor: Color.fromRGBO(22, 22, 37, 1),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.list, size: 20,color: Colors.white)),
+
             const Text('⌨️ VIRUS CHECKER', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings, size: 20,color: Colors.white)),
+
           ],
         ),
         centerTitle: true,
@@ -39,7 +41,7 @@ class _NoResultState extends State<NoResult> {
                     SizedBox(height: 20,),
                     Text(textAlign: TextAlign.center,"No matches found",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 19,color: Color.fromRGBO(134, 170, 249, 1)),),
                     SizedBox(height: 39,),
-                    Text(textAlign: TextAlign.center,"Alternatively, do you want to locate your threat based on static, dynamic, content, attribution or other advanced IoC context? VT Intelligence allows you to search across VirusTotal's entire threat corpus using a myriad of modifiers, learn more.",style: TextStyle(color: Colors.white),),
+                    Text(textAlign: TextAlign.center,"Alternatively, do you want to locate your threat based on static, dynamic, content, attribution or other advanced IoC context? VC Intelligence allows you to search across Virus Checker entire threat corpus using a myriad of modifiers, learn more.",style: TextStyle(color: Colors.white),),
                     SizedBox(height: 30,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -61,7 +63,7 @@ class _NoResultState extends State<NoResult> {
                               child: TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    Navigator.pop(context);
+                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage()));
                                   });
                                 },
                                 child: Text(
