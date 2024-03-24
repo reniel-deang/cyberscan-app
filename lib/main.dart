@@ -132,6 +132,8 @@ class _HomepageState extends State<Homepage> {
                                   {
                                     setState(() {
                                       Navigator.push(context, MaterialPageRoute(builder: (context) => NoResult()));
+                                      code = null;
+                                      searchController.text = "";
                                     });
                                   }
                                 else
