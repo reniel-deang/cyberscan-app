@@ -3,6 +3,7 @@ import 'package:text_link/text_link.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
+import 'package:virus_total_api/config/connect-api.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -125,6 +126,9 @@ class _HomepageState extends State<Homepage> {
                             color: Colors.transparent  ,
                             child: TextButton(
                               onPressed: () {
+                                setState(() {
+                                  scanUrl(searchController.text);
+                                });
                               },
                               child: Text(
                                 'Search',
