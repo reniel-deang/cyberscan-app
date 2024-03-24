@@ -16,6 +16,7 @@ void main() {
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
 
+
   @override
   State<Homepage> createState() => _HomepageState();
 }
@@ -31,11 +32,11 @@ class _HomepageState extends State<Homepage> {
         toolbarHeight: 80,
         backgroundColor: Color.fromRGBO(22, 22, 37, 1),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.list, size: 20,color: Colors.white)),
-            const Text('VIRUS CHECKER', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings, size: 20,color: Colors.white)),
+
+            const Text('⌨️ VIRUS CHECKER', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
+
           ],
         ),
         centerTitle: true,
@@ -131,7 +132,7 @@ class _HomepageState extends State<Homepage> {
                                 if (code == 404)
                                   {
                                     setState(() {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => NoResult()));
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NoResult()));
                                       code = null;
                                       searchController.text = "";
                                     });
