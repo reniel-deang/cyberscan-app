@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:virus_total_api/main.dart';
-import 'main.dart';
-import 'config/connect-api.dart';
 
 class NoResult extends StatefulWidget {
   const NoResult({super.key});
