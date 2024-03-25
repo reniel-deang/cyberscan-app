@@ -27,7 +27,7 @@ class Result extends StatelessWidget {
               },
             ),
             Spacer(), // Add a spacer to push the title to the center
-            const Text('VIRUS CHECKER', style: TextStyle(fontSize: 20, color: Color.fromRGBO(134, 170, 249, 1))),
+            const Text('CyberScan', style: TextStyle(fontSize: 20, color: Color.fromRGBO(134, 170, 249, 1))),
             Spacer(), // Add another spacer to push the title to the center
           ],
         ),

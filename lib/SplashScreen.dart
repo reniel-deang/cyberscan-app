@@ -71,7 +71,7 @@ class _LoadingState extends State<Loading> {
                 ),
               ),
               SizedBox(height: 30,),
-              Text('Virus Checker API', style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 20),),
+              Text('CyberScan API', style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 20),),
               SizedBox(height: 30,),
 
             ],

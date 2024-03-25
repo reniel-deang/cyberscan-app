@@ -36,7 +36,7 @@ class _HomepageState extends State<Homepage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            const Text('VIRUS CHECKER', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
+            const Text('CyberScan ', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
 
           ],
         ),
@@ -230,7 +230,7 @@ class _HomepageState extends State<Homepage> {
                                   },
                               ),
                               const TextSpan(
-                                text: ', and to the sharing of your URL submission with the security community. Please do not submit any personal information; VirusChecker is not responsible for the contents of your submission. ',
+                                text: ', and to the sharing of your URL submission with the security community. Please do not submit any personal information; CyberScan  is not responsible for the contents of your submission. ',
                                 style: TextStyle(fontSize: 14, color: Colors.white),
                               ),
                               TextSpan(
