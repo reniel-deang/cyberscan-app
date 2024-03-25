@@ -163,8 +163,9 @@ class Result extends StatelessWidget {
                                           Text(
                                             'Result: ${value['result']}',
                                             style: TextStyle(
-                                              color: value['result'] == 'clean' ? Colors.green :
-                                              value['result'] == 'malicious' ? Colors.red :
+                                              color: value['category'] == 'harmless' ? Colors.green :
+                                              value['category'] == 'malicious' ? Colors.red :
+                                              value['category'] == 'suspicious' ? Colors.yellow :
                                               Colors.grey,
                                               fontSize: 15,
                                             ),
