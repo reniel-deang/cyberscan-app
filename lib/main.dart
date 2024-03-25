@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:text_link/text_link.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:http/http.dart' as http;
 import 'package:virus_total_api/config/connect-api.dart';
 import 'package:virus_total_api/result.dart';
 import 'NoResult.dart';
 import 'SplashScreen.dart';
-import 'result.dart';
+
 
 void main() {
   runApp(const MaterialApp(
