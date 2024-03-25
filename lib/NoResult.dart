@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:virus_total_api/main.dart';
 
+
 class NoResult extends StatefulWidget {
   const NoResult({super.key});
 
@@ -39,7 +40,7 @@ class _NoResultState extends State<NoResult> {
                     SizedBox(height: 20,),
                     Text(textAlign: TextAlign.center,"No matches found",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 19,color: Color.fromRGBO(134, 170, 249, 1)),),
                     SizedBox(height: 39,),
-                    Text(textAlign: TextAlign.center,"Alternatively, do you want to locate your threat based on static, dynamic, content, attribution or other advanced IoC context? VC Intelligence allows you to search across Virus Checker entire threat corpus using a myriad of modifiers, learn more.",style: TextStyle(color: Colors.white),),
+                    Text(textAlign: TextAlign.center,"Alternatively, do you want to locate your threat based on static, dynamic, content, attribution or other advanced IoC context? VC Intelligence allows you to search across Virus Checker entire threat corpus using a myriad of modifiers.",style: TextStyle(color: Colors.white),),
                     SizedBox(height: 30,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
