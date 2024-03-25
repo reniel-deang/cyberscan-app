@@ -12,7 +12,7 @@ import 'result.dart';
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Homepage(),
+    home: Loading(),
   ));
 }
 
@@ -131,26 +131,66 @@ class _HomepageState extends State<Homepage> {
                             color: Colors.transparent  ,
                             child: TextButton(
                               onPressed: () async{
-                                await scanUrl(searchController.text);
-                                if (code == 404)
-                                {
-                                  setState(() {
-                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NoResult()));
-                                    code = null;
-                                    searchController.text = "";
-                                  });
-                                }
-                                if(status == "queued")
+
+                                try{
+                                  await scanUrl(searchController.text);
+
+                                  if (code == 404)
                                   {
-                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NoResult()));
+                                    setState(() {
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NoResult()));
+                                      code = null;
+                                      searchController.text = "";
+                                    });
+                                  }
+                                  if(status == "queued")
+                                  {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          title: Text('API is busy...'),
+                                          content: Text('Please try again for few moments'),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: Text('OK'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
                                     code = null;
                                     searchController.text = "";
                                   }
-                                else
-                                {
-                                  //">>>>>>>>>>>>>> NEW PAGE FOR RESULT <<<<<<<<<<<<<<<<<"
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Result()));
+                                  else
+                                  {
+                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Result()));
+                                  }
                                 }
+                                catch(e)
+                                {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: Text('Something went wrong'),
+                                        content: Text('Please try again later'),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text('OK'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                }
+
                               },
                               child: Text(
                                 'Search',

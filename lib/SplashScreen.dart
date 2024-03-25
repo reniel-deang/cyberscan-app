@@ -1,12 +1,11 @@
-import 'dart:convert';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:virus_total_api/main.dart';
+import 'config/connect-api.dart';
 
-void main()=> runApp(MaterialApp(
-  debugShowCheckedModeBanner: false,
-  home: Loading(),
-));
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -16,9 +15,38 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
+
   Future<void> getData() async {
 
-
+    try
+        {
+          final response = await http.post(
+            Uri.parse(apiUrl),
+            headers: headers,
+          );
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage()));
+        }
+        catch(e)
+    {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Connecting error'),
+            content: Text('Please check your internet and try again. '),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  SystemNavigator.pop();
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
   @override
   void initState() {

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'config/connect-api.dart';
 import 'main.dart';
+import 'package:intl/intl.dart';
 
 
 class Result extends StatelessWidget {
@@ -10,6 +11,7 @@ class Result extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
+    String currentDate = DateFormat.yMMMMd('en_US').format(DateTime.now());
     return Scaffold(
       backgroundColor: Color.fromRGBO(22, 22, 37, 1),
       appBar: AppBar(
@@ -68,7 +70,9 @@ class Result extends StatelessWidget {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                              TextButton(onPressed: () {}, child: Text('↻ Reanalyze', style: TextStyle(color: Colors.white))),
+                              TextButton(onPressed: () {
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage()));
+                              }, child: Text('↻ Reanalyze', style: TextStyle(color: Colors.white))),
                             ],
                           ),
                         ),
@@ -108,7 +112,7 @@ class Result extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text('Last Analysis Date', style: TextStyle(color: Colors.white)),
-                                  Text('data3', style: TextStyle(color: Colors.white)),
+                                  Text(currentDate, style: TextStyle(color: Colors.white, fontSize: 10)),
                                 ],
                               ),
                             ],
