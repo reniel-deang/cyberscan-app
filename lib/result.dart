@@ -51,7 +51,7 @@ class _ResultState extends State<Result> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(47,61,92,1)
+                              color: Color.fromRGBO(47,61,92,1)
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(20),
@@ -69,7 +69,7 @@ class _ResultState extends State<Result> {
 
                         Container(
                           decoration: BoxDecoration(
-                              color: Color.fromRGBO(35,44,66,1),
+                            color: Color.fromRGBO(35,44,66,1),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
