@@ -59,8 +59,12 @@ class Result extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  '✔️ No security vendors flagged this URL as malicious',
-                                  style: TextStyle(color: Colors.greenAccent),
+                                  maliciouscount == 0
+                                      ? '✔️ No security vendors flagged this URL as malicious'
+                                      : '$maliciouscount / 93 security vendors flagged this domain as malicious',
+                                  style: TextStyle(
+                                    color: maliciouscount == 0 ? Colors.greenAccent : Colors.red,
+                                  ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
@@ -152,7 +156,15 @@ class Result extends StatelessWidget {
                                         children: [
                                           Text('${value['engine_name']}',style: TextStyle(color: Colors.white,fontSize: 15),),
                                           Text('Category: ${value['category']}',style: TextStyle(color: Colors.white,fontSize: 15),),
-                                          Text('Result: ${value['result']}',style: TextStyle(color: Colors.white,fontSize: 15),),
+                                          Text(
+                                            'Result: ${value['result']}',
+                                            style: TextStyle(
+                                              color: value['result'] == 'clean' ? Colors.green :
+                                              value['result'] == 'malicious' ? Colors.red :
+                                              Colors.grey,
+                                              fontSize: 15,
+                                            ),
+                                          ),
                                         ]
                                     ),
 

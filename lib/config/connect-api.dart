@@ -5,6 +5,7 @@ String? id;
 String? type;
 String? status;
 String? link;
+int? maliciouscount;
 
 int? code;
 
@@ -48,7 +49,8 @@ Future<void> scanUrl(String url) async {
 
     //allsumresult
 
-    print(analysisReportData['data']['attributes']['stats'].toString());
+    print(analysisReportData['data']['attributes']['stats']['malicious'].toString());
+    maliciouscount = analysisReportData['data']['attributes']['stats']['malicious'];
     //status
     status = analysisReportData['data']['attributes']['status'].toString();
     print(analysisReportData['data']['attributes']['status'].toString());
