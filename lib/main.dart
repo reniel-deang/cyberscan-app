@@ -6,11 +6,12 @@ import 'package:http/http.dart' as http;
 import 'package:virus_total_api/config/connect-api.dart';
 import 'package:virus_total_api/result.dart';
 import 'NoResult.dart';
+import 'SplashScreen.dart';
 
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Result(),
+home: Result(),
   ));
 }
 
