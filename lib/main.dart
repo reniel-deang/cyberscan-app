@@ -11,7 +11,7 @@ import 'SplashScreen.dart';
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-home: Result(),
+    home: Homepage(),
   ));
 }
 
@@ -128,10 +128,20 @@ class _HomepageState extends State<Homepage> {
                           child: Container(
                             color: Colors.transparent  ,
                             child: TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  scanUrl(searchController.text);
-                                });
+                              onPressed: () async{
+                                await scanUrl(searchController.text);
+                                if (code == 404)
+                                {
+                                  setState(() {
+                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NoResult()));
+                                    code = null;
+                                    searchController.text = "";
+                                  });
+                                }
+                                else
+                                {
+                                  //">>>>>>>>>>>>>> NEW PAGE FOR RESULT <<<<<<<<<<<<<<<<<"
+                                }
                               },
                               child: Text(
                                 'Search',
@@ -144,8 +154,6 @@ class _HomepageState extends State<Homepage> {
 
 
                       const SizedBox(height: 60),
-
-
 
                       Center(
                         child: RichText(
@@ -186,9 +194,6 @@ class _HomepageState extends State<Homepage> {
                                     _launchURL('https://docs.virustotal.com/docs/how-it-works');
                                   },
                               ),
-
-
-
 
 
                             ],

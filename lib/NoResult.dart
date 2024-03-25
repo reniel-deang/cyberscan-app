@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-
+import 'main.dart';
 
 class NoResult extends StatefulWidget {
   const NoResult({super.key});
@@ -61,6 +60,9 @@ class _NoResultState extends State<NoResult> {
                               color: Color.fromRGBO(22, 22, 37, 1),
                               child: TextButton(
                                 onPressed: () {
+                                  setState(() {
+                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage()));
+                                  });
                                 },
                                 child: Text(
                                   'Try a new search',
