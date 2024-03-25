@@ -20,7 +20,7 @@ class _NoResultState extends State<NoResult> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            const Text('⌨️ VIRUS CHECKER', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
+            const Text('CyberScan ', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
 
           ],
         ),
@@ -39,7 +39,7 @@ class _NoResultState extends State<NoResult> {
                     SizedBox(height: 20,),
                     Text(textAlign: TextAlign.center,"No matches found",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 19,color: Color.fromRGBO(134, 170, 249, 1)),),
                     SizedBox(height: 39,),
-                    Text(textAlign: TextAlign.center,"Alternatively, do you want to locate your threat based on static, dynamic, content, attribution or other advanced IoC context? VT Intelligence allows you to search across VirusTotal's entire threat corpus using a myriad of modifiers, learn more.",style: TextStyle(color: Colors.white),),
+                    Text(textAlign: TextAlign.center,"Alternatively, do you want to locate your threat based on static, dynamic, content, attribution or other advanced IoC context? VT Intelligence allows you to search across CyberScan's entire threat corpus using a myriad of modifiers, learn more.",style: TextStyle(color: Colors.white),),
                     SizedBox(height: 30,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
