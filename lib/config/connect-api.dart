@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 
 int? code;
 
-final String apiKey = 'e6fdf2866cbf74913cfcf254d9071340fc65ab97419004f11c6998fb53ceaf5a';
-final String apiUrl = 'https://www.virustotal.com/api/v3/urls';
+const String apiKey = 'e6fdf2866cbf74913cfcf254d9071340fc65ab97419004f11c6998fb53ceaf5a';
+const String apiUrl = 'https://www.virustotal.com/api/v3/urls';
 
 final Map<String, String> headers = {
   'x-apikey': apiKey,
