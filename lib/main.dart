@@ -7,6 +7,7 @@ import 'package:virus_total_api/config/connect-api.dart';
 import 'package:virus_total_api/result.dart';
 import 'NoResult.dart';
 import 'SplashScreen.dart';
+import 'result.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -24,6 +25,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   TextEditingController searchController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -138,9 +140,16 @@ class _HomepageState extends State<Homepage> {
                                     searchController.text = "";
                                   });
                                 }
+                                if(status == "queued")
+                                  {
+                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NoResult()));
+                                    code = null;
+                                    searchController.text = "";
+                                  }
                                 else
                                 {
                                   //">>>>>>>>>>>>>> NEW PAGE FOR RESULT <<<<<<<<<<<<<<<<<"
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Result()));
                                 }
                               },
                               child: Text(

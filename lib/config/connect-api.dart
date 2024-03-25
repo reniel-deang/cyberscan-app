@@ -4,9 +4,12 @@ import 'package:http/http.dart' as http;
 String? id;
 String? type;
 String? status;
+String? link;
+
 int? code;
 
-final Map<String, dynamic> result = {};
+
+Map<String, dynamic> analysiscontainer = {};
 
 final String apiKey = 'e6fdf2866cbf74913cfcf254d9071340fc65ab97419004f11c6998fb53ceaf5a';
 final String apiUrl = 'https://www.virustotal.com/api/v3/urls';
@@ -37,7 +40,27 @@ Future<void> scanUrl(String url) async {
       headers: headers,);
 
     //Debugging print only
-    print(analysisReport.body);
+    /*print(analysisReport.body);*/
+    final analysisReportData = jsonDecode(analysisReport.body);
+    //id
+    id = analysisReportData['data']['id'].toString();
+    print(analysisReportData['data']['id'].toString());
+
+    //allsumresult
+
+    print(analysisReportData['data']['attributes']['stats'].toString());
+    //status
+    status = analysisReportData['data']['attributes']['status'].toString();
+    print(analysisReportData['data']['attributes']['status'].toString());
+    //analysis
+
+    analysiscontainer = analysisReportData['data']['attributes']['results'];
+
+    print(analysiscontainer);
+
+    //link
+    link = analysisReportData['meta']['url_info']['url'].toString();
+    print(analysisReportData['meta']['url_info']['url'].toString());
 
   } else {
     print('Error: ${response.body}');

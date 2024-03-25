@@ -1,9 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'config/connect-api.dart';
+import 'main.dart';
+
 
 class Result extends StatelessWidget {
   const Result({Key? key}) : super(key: key);
 
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(22, 22, 37, 1),
@@ -13,11 +18,20 @@ class Result extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            IconButton(
+              icon: Icon(Icons.arrow_back, color: Color.fromRGBO(134, 170, 249, 1)),
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage())); // Navigate back when back button is pressed
+              },
+            ),
+            Spacer(), // Add a spacer to push the title to the center
             const Text('VIRUS CHECKER', style: TextStyle(fontSize: 20, color: Color.fromRGBO(134, 170, 249, 1))),
+            Spacer(), // Add another spacer to push the title to the center
           ],
         ),
         centerTitle: true,
       ),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05), // Adjust padding
@@ -59,7 +73,7 @@ class Result extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           color: Color.fromRGBO(35, 44, 66, 1),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(20),
@@ -69,8 +83,7 @@ class Result extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text('https://www.onlinegdb.com/', style: TextStyle(color: Colors.white)),
-                                    Text('www.onlinegdb.com', style: TextStyle(color: Colors.white)),
+                                    Text("$link", style: TextStyle(color: Colors.white)),
                                   ],
                                 ),
                               ),
@@ -111,8 +124,50 @@ class Result extends StatelessWidget {
                           SizedBox(height: 10), // Adjust vertical spacing
                         ],
                       ),
+
+
                     ],
                   ),
+                ),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.4, // Adjust the height as needed
+                child: ListView.builder(
+                  itemCount: analysiscontainer.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    String key = analysiscontainer.keys.elementAt(index);
+                    Map<String, dynamic> value = analysiscontainer[key]!;
+                    return ListTile(
+                      title: Text(key),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Table(
+                                  children: [
+                                    TableRow(
+                                        children: [
+                                          Text('${value['engine_name']}',style: TextStyle(color: Colors.white,fontSize: 15),),
+                                          Text('Category: ${value['category']}',style: TextStyle(color: Colors.white,fontSize: 15),),
+                                          Text('Result: ${value['result']}',style: TextStyle(color: Colors.white,fontSize: 15),),
+                                        ]
+                                    ),
+
+                                  ],
+                                ),
+                                SizedBox(height: 10,),
+                                Divider(thickness: 0.5,color: Colors.grey,)
+                              ],
+                            ),
+                          )
+
+                        ],
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
