@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:text_link/text_link.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
 import 'package:virus_total_api/config/connect-api.dart';
+import 'package:virus_total_api/result.dart';
 import 'NoResult.dart';
 
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Homepage(),
+    home: Result(),
   ));
 }
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
-
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -33,7 +35,7 @@ class _HomepageState extends State<Homepage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            const Text('⌨️ VIRUS CHECKER', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
+            const Text('VIRUS CHECKER', style: TextStyle(fontSize: 20,color: Color.fromRGBO(134, 170, 249, 1))),
 
           ],
         ),
@@ -125,20 +127,10 @@ class _HomepageState extends State<Homepage> {
                           child: Container(
                             color: Colors.transparent  ,
                             child: TextButton(
-                              onPressed: () async {
-                                await scanUrl(searchController.text);
-                                if (code == 404)
-                                  {
-                                    setState(() {
-                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NoResult()));
-                                      code = null;
-                                      searchController.text = "";
-                                    });
-                                  }
-                                else
-                                  {
-                                    //">>>>>>>>>>>>>> NEW PAGE FOR RESULT <<<<<<<<<<<<<<<<<"
-                                  }
+                              onPressed: () {
+                                setState(() {
+                                  scanUrl(searchController.text);
+                                });
                               },
                               child: Text(
                                 'Search',
