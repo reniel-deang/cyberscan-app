@@ -3,11 +3,12 @@ import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:virus_total_api/config/connect-api.dart';
 import 'NoResult.dart';
+import 'SplashScreen.dart';
 
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Homepage(),
+    home: Loading(),
   ));
 }
 
