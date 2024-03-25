@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+
 class NoResult extends StatefulWidget {
   const NoResult({super.key});
 
