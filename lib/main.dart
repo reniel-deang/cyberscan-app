@@ -141,7 +141,7 @@ class _HomepageState extends State<Homepage> {
                                       searchController.text = "";
                                     });
                                   }
-                                  if(status == "queued")
+                                  else if(status == "queued")
                                   {
                                     showDialog(
                                       context: context,
