@@ -12,7 +12,8 @@ int? code;
 
 Map<String, dynamic> analysiscontainer = {};
 
-final String apiKey = 'e6fdf2866cbf74913cfcf254d9071340fc65ab97419004f11c6998fb53ceaf5a';
+//PUT YOUR API KEY HERE FROM VIRUS TOTAL API
+final String apiKey = '';
 final String apiUrl = 'https://www.virustotal.com/api/v3/urls';
 
 final Map<String, String> headers = {
